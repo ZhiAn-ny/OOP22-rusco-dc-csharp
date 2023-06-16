@@ -1,0 +1,18 @@
+public abstract class AbstractActor : IActor
+{
+    private readonly string name;
+    private readonly int ID = 3;
+    private readonly IStat stat;
+    private readonly ISkill skill;
+    private Tuple<Int32, Int32> pos;
+
+    string GetName();
+    IStat GetStats();
+    ISkill GetSkills();
+    int GetStatActual(StatName statName);
+    int GetStatMax(StatName statName);
+    void SetPos(Tuple<int, int> newPos);
+    void ModifyActualStat(StatName statName, int value);
+    void ModifyMaxStat(StatName statName, int value);
+    bool IsAlive();
+}
