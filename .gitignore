@@ -6,6 +6,8 @@ build
 
 bin/
 
+.vs
+
 .idea
 
 .settings
