@@ -28,37 +28,25 @@
         /**
         * 
         */
-        public void SetActor(IActor by)
-        {
-            _actActor = by;
-        }
+        public void SetActor(IActor by) => _actActor = by;
 
         /**
         * 
         */
-        public void SetRoom(IRoom where)
-        {
-            _where = where;
-        }   
+        public void SetRoom(IRoom where) => _where = where;
         
 
         /**
         * For avoid DRY, other classes that extends this class get who summon the command by this method.
         * @return who summon the command
         */
-        protected IActor getActor()
-        {
-            return this.actActor;
-        }
+        protected IActor getActor() => _actActor;
 
         /**
         * For avoid DRY, other classes that extends this class get where the command was summoned by this method.
         * @return where the command was summoned
         */
-        protected IRoom getRoom()
-        {
-            return this.where;
-        }
+        protected IRoom getRoom() => _where;
 
         /**
         * A message error useful for coders that advise the method is not invocable for this object.
@@ -66,19 +54,13 @@
         * is not invocable).
         * @return this message error 
         */
-        protected String getGlobalErrMess()
-        {
-            return GLOBAL_ERR_MESS;
-        }
+        protected String getGlobalErrMess() => GLOBAL_ERR_MESS;
 
         /**
         * For avoid DRY, other classes that extends this class can get a standard error title.
         * @return the error title, something that advise that action is not terminated correctly
         */
-        protected String getErrTitle()
-        {
-            return ERR_TITLE;
-        }
+        protected String getErrTitle() => ERR_TITLE;
 
         public abstract void Execute();
 
