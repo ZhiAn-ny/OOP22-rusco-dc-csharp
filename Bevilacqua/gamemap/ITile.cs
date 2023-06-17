@@ -5,6 +5,16 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
     public interface ITile
     {
         /// <summary>
+        /// The position in which the tile was placed.
+        /// </summary>
+        Tuple<int, int> Position { get; }
+
+        /// <summary>
+        /// Whether an actor can access the tile or not.
+        /// </summary>
+        bool IsAccessible { get; }
+
+        /// <summary>
         /// Places an interabtable object on the tile.
         /// </summary>
         /// <param name="obj">The object to place on the tile</param>
