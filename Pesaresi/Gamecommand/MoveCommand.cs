@@ -1,3 +1,4 @@
+using System;
 /**
  * Class that check the movement of a specific Actor in a specific Room.
  * Classes that extends this class must only define what will be the new position of the Actor
@@ -17,6 +18,7 @@ public abstract class MoveCommand : QuickActionAbs {
      */
     public override void Execute() 
     {
+      /*
         IRoom where = this.getRoom();
         Tuple<Int32, Int32> newPos = this.computeNewPos();
         if (where.getMonsters().stream().map(a -> a.getPos()).anyMatch(p -> p.equals(newPos)) 
@@ -26,6 +28,7 @@ public abstract class MoveCommand : QuickActionAbs {
         }
 
         IActor actActor = this.getActor();
+      */
         //actActor.setPos(newPos); //TODO
 
         // Tile? arrivedPos = where.get(newPos);
@@ -42,7 +45,7 @@ public abstract class MoveCommand : QuickActionAbs {
         //     return gc.execute();
         // }
 
-        return Optional.empty();
+        return;
     }
 
     /**
@@ -50,6 +53,6 @@ public abstract class MoveCommand : QuickActionAbs {
      * This work must be defined in other dedicated classes.
      * @return the new position, to be checked
      */
-    protected abstract Tuple<Int32, Int32> computeNewPos();
+    protected abstract Tuple<Int32, Int32> ComputeNewPos();
 
 }

@@ -1,4 +1,4 @@
-    public enum GameControl
-    {
-        //dummy implementation
-    }
+public enum GameControl
+{
+    //dummy implementation
+}

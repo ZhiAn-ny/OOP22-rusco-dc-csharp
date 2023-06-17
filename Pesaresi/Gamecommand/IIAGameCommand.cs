@@ -1,4 +1,7 @@
-﻿    /**
+using System;
+using System.Collections.Generic;
+
+    /**
     * Defines a set of method usefull to manage automatically a specific situation.
     * With these the game can manage mobs
     */

@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 /**
  * This abstract class defines that all the other class that extend this class will wrap an
  * action that tipically can execute without any type of other controls (neither by player or IA).
@@ -14,47 +16,47 @@ public abstract class QuickActionAbs : BasicGameCommand  {
     /**
      * 
      */
-    public bool isReady() => true;
+    public override bool IsReady() => true;
 
     /**
      * 
      */
-    public bool modify(GameControl input) {
+    public override bool Modify(GameControl input) {
         throw new NotSupportedException(this.getGlobalErrMess());
     }
 
     /**
      * 
      */
-    public List<IEntity> getEntities() {
+    public override IList<IEntity> GetEntities() {
         throw new NotSupportedException(this.getGlobalErrMess());
     }
 
     /**
      * 
      */
-    public bool isTargetInRange(IActor target) {
+    public override bool IsTargetInRange(IActor target) {
         throw new NotSupportedException(this.getGlobalErrMess());
     }
 
     /**
      * 
      */
-    public int getAPCost() {
+    public override int GetAPCost() {
         throw new NotSupportedException(this.getGlobalErrMess());
     }
 
     /**
      * 
      */
-    public void setCursorPos(Tuple<Int32, Int32> toFocus) {
+    public override void SetCursorPos(Tuple<Int32, Int32> toFocus) {
         throw new NotSupportedException(this.getGlobalErrMess());
     }
 
     /**
      * 
      */
-    public void setTarget(List<IActor> targettableActors) {
+    public override void SetTarget(IList<IActor> targettableActors) {
         throw new NotSupportedException(this.getGlobalErrMess());
     }
 

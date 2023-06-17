@@ -1,4 +1,8 @@
-﻿    public interface IGameCommand
+using System;
+/**
+ * Interface for game's command. Defines method that all command must to implement
+ */
+public interface IGameCommand
     {
         /**
         * Set into command who summon this command.

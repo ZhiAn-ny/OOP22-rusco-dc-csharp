@@ -1,4 +1,6 @@
-﻿    /**
+using System;
+using System.Collections.Generic;
+    /**
     * Defines a set of method usefull to manage manually a specific situation
     * With these the player can manage a specific situation.
     */

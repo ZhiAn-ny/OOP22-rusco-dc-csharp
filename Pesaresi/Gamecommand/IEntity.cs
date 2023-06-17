@@ -1,4 +1,4 @@
-    public interface IEntity
-    {
-        //dummy implementation
-    }
+public interface IEntity
+{
+    //dummy implementation
+}

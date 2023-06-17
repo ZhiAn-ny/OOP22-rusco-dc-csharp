@@ -1,4 +1,6 @@
-﻿    /**
+using System;
+using System.Collections.Generic;
+    /**
     * Initial implementation of GameCommand.
     * Generally each type of command must know at least two information:
     * <ul>
