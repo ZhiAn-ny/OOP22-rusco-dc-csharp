@@ -15,7 +15,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
             this.IsAccessible = isAccessible;
         }
 
-        public bool Put(IInteractable obj)
+        public virtual bool Put(IInteractable obj)
         {
             if (this.content == null)
             {
@@ -24,7 +24,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
             return false;
         }
 
-        public IInteractable? Get()
+        public virtual IInteractable? Get()
         {
             return this.content;
         }

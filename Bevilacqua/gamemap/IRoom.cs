@@ -39,5 +39,22 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
         /// <returns>the internal area of the room</returns>
         int GetArea();
 
+        /// <summary>
+        /// Adds a door on the side facing the specified direction.
+        /// </summary>
+        /// <param name="dir">the side of the room on which place the door</param>
+        /// <returns>True, if the door was placed correctly, False otherwise</returns>
+        bool AddDoor(Direction dir);
+
+        /// <summary>
+        /// Connects a room to the current one.
+        /// </summary>
+        /// <param name="dir">the direction on which the two rooms
+        /// will be communicating</param>
+        /// <param name="other">the room to connect</param>
+        /// <returns>True if the rooms have been correctly connected,
+        /// False otherwise</returns>
+        bool AddConnectedRoom(Direction dir, IRoom other);
+
     }
 }
