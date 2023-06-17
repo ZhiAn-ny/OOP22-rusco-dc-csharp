@@ -1,9 +1,4 @@
 ﻿using Interactable;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
 {
@@ -20,14 +15,22 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
         /// <summary>
         /// Returns the interactable object placed on the tile.
         /// </summary>
-        /// <returns>the object on the tile</returns>
-        IInteractable Get();
+        /// <returns>a nullable of the object on the tile</returns>
+        IInteractable? Get();
 
         /// <summary>
         /// Empties the tile.
         /// </summary>
-        /// <returns>the object placed on the tile, if any</returns>
-        IInteractable Empty();
+        /// <returns>a nullable of the object placed on the tile, if any</returns>
+        IInteractable? Empty();
+
+        /// <summary>
+        /// Returns the effect produced on an actor when stepping on the tile.
+        /// </summary>
+        /// <returns>the action execute on the actor when stepping on
+        /// the tile</returns>
+        Action<IActor> GetEffect();
+
 
     }
 }
