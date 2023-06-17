@@ -11,7 +11,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
     {
         public Tuple<int, int> Size { get; }
         public List<IActor> Monsters { get; }
-        public Dictionary<Direction, IRoom> ConnectedRooms { get; }
+        public Dictionary<Direction, IRoom?> ConnectedRooms { get; }
         public List<ITile> Tiles { get; }
 
         public RectangleRoom(int width, int height)
@@ -19,7 +19,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
             this.Size = new Tuple<int, int>(width, height);
             this.Tiles = new List<ITile>();
             this.Monsters = new List<IActor>();
-            this.ConnectedRooms = new Dictionary<Direction, IRoom>();
+            this.ConnectedRooms = new Dictionary<Direction, IRoom?>();
             this.setTiles(width, height);
         }
 

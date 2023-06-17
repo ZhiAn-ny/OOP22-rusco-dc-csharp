@@ -31,7 +31,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
         /// </summary>
         /// <returns>a Dictionary specifying the Direction on which the room's
         /// doors are placed and, the connected room if any</returns>
-        Dictionary<Direction, IRoom> ConnectedRooms { get; }
+        Dictionary<Direction, IRoom?> ConnectedRooms { get; }
 
         /// <summary>
         /// Returns the internal area of the room.
