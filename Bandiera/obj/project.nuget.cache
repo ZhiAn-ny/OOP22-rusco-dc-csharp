@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "h3OWbODW8bnGKleuoOZExA63/860uRYk3Q5a+BlT2p6pSCC7fyYI+Nm8kTpZaExDmceiRU0pg9leOh9bVU0YoA==",
+  "success": true,
+  "projectFilePath": "/home/liuk23/Desktop/Java/ProgettoGruppoJavaUfficialeUnibo/OOP-rusco-dc-c#/OOP22-rusco-dc-csharp/Bandiera/Bandiera.csproj",
+  "expectedPackageFiles": [
+    "/home/liuk23/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.3/microsoft.aspnetcore.app.ref.7.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
