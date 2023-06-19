@@ -365,3 +365,24 @@ healthchecksdb
 
 
 */obj/
+
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+bin/
+
+.sln
+
+
+.vs
+.vscode
+
+.idea
+
+.settings
+
+obj/

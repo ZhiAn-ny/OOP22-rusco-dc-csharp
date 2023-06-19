@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
+
+namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
+{
+
     /**
     * Defines a set of method usefull to manage manually a specific situation
     * With these the player can manage a specific situation.
-    */
+*/
     public interface IHandlableGameCommand
     {
         /**
@@ -27,3 +31,4 @@ using System.Collections.Generic;
         IList<IEntity> GetEntities();
 
     }
+}

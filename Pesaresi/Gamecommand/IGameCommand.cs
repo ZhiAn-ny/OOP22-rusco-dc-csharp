@@ -1,8 +1,11 @@
 using System;
-/**
- * Interface for game's command. Defines method that all command must to implement
- */
-public interface IGameCommand
+
+namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
+{
+    /**
+   * Interface for game's command. Defines method that all command must to implement
+*/
+    public interface IGameCommand
     {
         /**
         * Set into command who summon this command.
@@ -35,3 +38,4 @@ public interface IGameCommand
         */
         void Execute();
     }
+}

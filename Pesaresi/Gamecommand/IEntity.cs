@@ -1,4 +1,7 @@
-public interface IEntity
+namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 {
-    //dummy implementation
+    public interface IEntity
+    {
+        //dummy implementation
+    }
 }

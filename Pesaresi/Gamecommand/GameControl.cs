@@ -1,4 +1,7 @@
-public enum GameControl
+namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 {
-    //dummy implementation
+    public enum GameControl
+    {
+        //dummy implementation
+    }
 }

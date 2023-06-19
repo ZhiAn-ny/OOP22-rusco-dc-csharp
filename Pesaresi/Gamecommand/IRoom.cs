@@ -1,5 +1,7 @@
-public interface IRoom
+namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 {
-    //dummy definition about this interface
+    public interface IRoom
+    {
+        //dummy definition about this interface
+    }
 }
-
