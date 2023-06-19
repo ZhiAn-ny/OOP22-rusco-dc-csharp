@@ -29,7 +29,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          */
         public override bool Modify(GameControl input)
         {
-            throw new NotSupportedException(getGlobalErrMess());
+            throw new NotSupportedException(GetGlobalErrMess());
         }
 
         /**
@@ -37,7 +37,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          */
         public override IList<IEntity> GetEntities()
         {
-            throw new NotSupportedException(getGlobalErrMess());
+            throw new NotSupportedException(GetGlobalErrMess());
         }
 
         /**
@@ -45,7 +45,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          */
         public override bool IsTargetInRange(IActor target)
         {
-            throw new NotSupportedException(getGlobalErrMess());
+            throw new NotSupportedException(GetGlobalErrMess());
         }
 
         /**
@@ -53,7 +53,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          */
         public override int GetAPCost()
         {
-            throw new NotSupportedException(getGlobalErrMess());
+            throw new NotSupportedException(GetGlobalErrMess());
         }
 
         /**
@@ -61,7 +61,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          */
         public override void SetCursorPos(Tuple<Int32, Int32> toFocus)
         {
-            throw new NotSupportedException(getGlobalErrMess());
+            throw new NotSupportedException(GetGlobalErrMess());
         }
 
         /**
@@ -69,7 +69,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          */
         public override void SetTarget(IList<IActor> targettableActors)
         {
-            throw new NotSupportedException(getGlobalErrMess());
+            throw new NotSupportedException(GetGlobalErrMess());
         }
 
     }

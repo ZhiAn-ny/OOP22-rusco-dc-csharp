@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using Marcaccio.actors;
 namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 {
     /**
@@ -51,7 +51,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
         * For avoid DRY, other classes that extends this class get where the command was summoned by this method.
         * @return where the command was summoned
         */
-        protected IRoom getRoom() => _where;
+        protected IRoom GetRoom() => _where;
 
         /**
         * A message error useful for coders that advise the method is not invocable for this object.
@@ -59,13 +59,13 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
         * is not invocable).
         * @return this message error 
         */
-        protected String getGlobalErrMess() => GLOBAL_ERR_MESS;
+        protected String GetGlobalErrMess() => GLOBAL_ERR_MESS;
 
         /**
         * For avoid DRY, other classes that extends this class can get a standard error title.
         * @return the error title, something that advise that action is not terminated correctly
         */
-        protected String getErrTitle() => ERR_TITLE;
+        protected String GetErrTitle() => ERR_TITLE;
 
         public abstract void Execute();
 
