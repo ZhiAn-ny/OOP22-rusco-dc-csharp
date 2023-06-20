@@ -1,6 +1,6 @@
 namespace Marcaccio
 {
-    public interface IGameCommand
+    public interface IEntity
     {
         int GetID();
         string GetPath();
