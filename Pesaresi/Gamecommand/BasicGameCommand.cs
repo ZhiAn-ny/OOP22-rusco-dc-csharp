@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Marcaccio.actors;
+using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
+using OOP22_rusco_dc_csharp.Marcaccio;
+using OOP22_rusco_dc_csharp.Marcaccio.actors;
+
 namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 {
     /**
@@ -22,13 +25,6 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 
         private IActor _actActor;
         private IRoom _where;
-
-        /**
-        * Client must not create directily this objects.
-        */
-        protected BasicGameCommand()
-        {
-        }
 
         /**
         * 
