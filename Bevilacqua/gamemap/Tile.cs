@@ -1,8 +1,9 @@
 ﻿using Interactable;
+using Marcaccio.actors;
 
 namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
 {
-    public abstract class Tile : ITile
+    public abstract class Tile : ITile, IEntity
     {
         private IInteractable? content = null;
 
@@ -43,5 +44,6 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
         {
             return (IActor actor) => { };
         }
+
     }
 }
