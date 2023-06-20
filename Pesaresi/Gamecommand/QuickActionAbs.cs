@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using OOP22_rusco_dc_csharp.Marcaccio;
+using Marcaccio;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand

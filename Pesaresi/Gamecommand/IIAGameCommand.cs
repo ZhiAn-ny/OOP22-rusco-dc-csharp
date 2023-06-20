@@ -15,7 +15,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
         * Focus the attack to a specific actor.
         * @param toFocus where the attack start
         */
-        void SetCursorPos(Tuple<Int32, Int32> toFocus);
+        void SetCursorPos(Tuple<int, int> toFocus);
 
         /**
         * Specifies possible actors that can be afflicted by the attack.

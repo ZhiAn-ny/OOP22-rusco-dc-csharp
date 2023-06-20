@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
 using OOP22_rusco_dc_csharp.CommonFile;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.hero;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Test
@@ -20,10 +21,10 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
         [Test]
         public void TestMoveUp()
         {
-            int size = 20;
+            int size = 21;
             Tuple<int, int> actHeroPos = new(size/2, size/2);
-            IActor hero; //= new Hero("");
-            IRoom room; //= new Room(hero);
+            IActor hero = new Hero("test", actHeroPos, null, null);
+            IRoom room = new RectangleRoom(size,size);
             MoveUpCommand moveUp = new();
             //SetCommand(moveUp, hero, room);
             Tuple<int,int> newHeroPos = MovementCalc.ComputeUpPos(actHeroPos);
