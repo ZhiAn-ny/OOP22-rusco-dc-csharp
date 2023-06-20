@@ -1,11 +1,6 @@
-using System;
-//using Microsoft.VisualStudio.TestTools.UnitTesting;
-//using NUnit.Framework;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using NUnit.Framework;
 
-using System.Reflection;
-using System.Transactions;
 using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
 using OOP22_rusco_dc_csharp.CommonFile;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
@@ -13,7 +8,7 @@ using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Test
 {
-    [TestClass]
+    [TestFixture]
     public class MovementTest
     {
         private void SetCommand(IGameCommand gamecommand, IActor who, IRoom where)
@@ -22,7 +17,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
             gamecommand.SetRoom(where);
         }
 
-        [TestMethod]
+        [Test]
         public void TestMoveUp()
         {
             int size = 20;
@@ -36,5 +31,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
             Assert.DoesNotThrow(() => { moveUp.Execute(); });
             //Assert.AreEqual(hero.GetPos(), newHeroPos);
         }
+
     }
+
 }
