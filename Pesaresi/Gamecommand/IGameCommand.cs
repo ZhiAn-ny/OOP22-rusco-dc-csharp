@@ -7,7 +7,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
     /**
    * Interface for game's command. Defines method that all command must to implement
 */
-    public interface IGameCommand
+    public interface IGameCommand : IHandlableGameCommand, IIAGameCommand
     {
         /**
         * Set into command who summon this command.
