@@ -1,6 +1,8 @@
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
 ﻿using Interactable;
 using System.Collections.Immutable;
+using IEntity = OOP22_rusco_dc_csharp.Marcaccio.IEntity;
+
 
 namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 {
@@ -19,12 +21,12 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
         /// <summary>
         /// The list of monsters in the room.
         /// </summary>
-        List<IActor> Monsters { get; }
+        ImmutableList<IActor> Monsters { get; }
 
         /// <summary>
         /// The list of objects in the room.
         /// </summary>
-        List<IInteractable> ObjectsInRoom{ get; }
+        ImmutableList<IInteractable> ObjectsInRoom{ get; }
 
         /// <summary>
         /// Returns the rooms connected to the current one and the side on which
@@ -46,6 +48,15 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
         /// <param name="pos">The position to check</param>
         /// <returns>The tile at the specified position, if any</returns>
         ITile? Get(Tuple<int, int> pos);
+
+        /// <summary>
+        /// Place an object in the specified position.
+        /// </summary>
+        /// <param name="pos">the position at which place the object</param>
+        /// <param name="obj">the object to place</param>
+        /// <returns>True if the object was successfully placed,
+        /// False otherwise</returns>
+        bool Put(Tuple<int, int> pos, IInteractable obj);
 
         /// <summary>
         /// Returns whether the specified position is accessible to an actor.
@@ -76,7 +87,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
         /// </summary>
         /// <param name="pos">the center of the area</param>
         /// <param name="rad">the radius of the area</param>
-        void clearArea(Tuple<int, int> pos, int rad);
+        void ClearArea(Tuple<int, int> pos, int rad);
 
         /// <summary>
         /// Adds a monster to the room.
@@ -89,7 +100,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
         /// Eliminates a monster and removes it from the map.
         /// </summary>
         /// <param name="monster">the monster to eliminate</param>
-        void eliminateMonster(IActor monster);
+        void EliminateMonster(IActor monster);
 
         /// <summary>
         /// Adds a door on the side facing the specified direction.
