@@ -41,7 +41,8 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.test
         }
 
         [Test]
-        public void ActorTest() {
+        public void ActorTest()
+        {
             Tuple<int, int> _pos = new (0,0);
             int _statVal = 1;
             IStat _tetsStat = _hero.GetStats();
@@ -54,8 +55,41 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.test
                     Assert.That(_tetsStat.GetStatMax(statName), Is.EqualTo(_statVal));
                 });
             }
-        } 
 
+            Assert.Multiple(() =>
+            {
+                Assert.That(_hero.Act(GameControl.MOVE), Is.EqualTo(_hero.GetSkills().GetAction(GameControl.MOVE)));
+                Assert.That(_hero.GetID(), Is.EqualTo(3));
+                Assert.That(_hero.GetName, Is.EqualTo("Test"));
+                Assert.That(_hero.GetPos, Is.EqualTo(_pos));
+            });
+        }
 
+        [Test]
+        public void InventoryTest()
+        {
+            IInventory _inventory = _hero.GetInventory();
+            Equipment _testEquip = (Equipment)_hero.GetInventory().GetItem(0);
+            
+            Assert.Multiple(() =>
+            {
+                Assert.That(_inventory.IsFull(), Is.False);
+                Assert.That(_inventory.IsEmpty, Is.False);
+                Assert.That(_inventory.SlotOccupied(), Is.EqualTo(1));
+            });
+            Assert.Multiple(() =>
+            {
+                Assert.That(_testEquip.GetName(), Is.EqualTo("TestEquip"));
+                Assert.That(_testEquip.GetPath(), Is.EqualTo("TestEquipPath"));
+                Assert.That(_testEquip.IsWearable, Is.True);
+                Assert.That(_testEquip.GetSlot(), Is.EqualTo(Inventory.Slot.WEAPON));
+            });
+            _inventory.RemoveItem(0);
+            Assert.Multiple(() =>
+            {
+                Assert.That(_inventory.IsEmpty, Is.True);
+                Assert.That(_inventory.SlotOccupied(), Is.EqualTo(0));
+            });
+        }
     }
 }

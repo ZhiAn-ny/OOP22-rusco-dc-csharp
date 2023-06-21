@@ -1,13 +1,13 @@
-using Marcaccio;
-using OOP22_rusco_dc_csharp.Bevilacqua.GameMap;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.skills;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.stats;
-using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 using static OOP22_rusco_dc_csharp.Marcaccio.actors.stats.Stat;
 
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors
 {
+    /**
+    * 
+    */
     public abstract class AbstractActor : IActor
     {
         private readonly string _name;
@@ -16,6 +16,13 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.actors
         private readonly ISkill _skill;
         private Tuple<int, int> _pos;
 
+        /**
+        * @param name of the Actor
+        * @param currentPos of the Actor
+        * @param skills of the Actor
+        * @param stats of the Actor
+        * Basic constructor for every Actor 
+        */
         protected AbstractActor(string name, IStat stat, ISkill skill, Tuple<int, int> pos)
         {
             _name = name;
@@ -24,17 +31,64 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.actors
             _pos = pos;
         }
 
+        /**
+        * 
+        */
         public int GetID() => _ID;
+
+        /**
+        * 
+        */
         public string GetName() => _name;
+
+        /**
+        * 
+        */
         public IStat GetStats() => _stat;
+
+        /**
+        * 
+        */
         public ISkill GetSkills() => _skill;
+
+        /**
+        * 
+        */
         public Tuple<int, int> GetPos() => _pos;
+
+        /**
+        * 
+        */
         public int GetStatActual(StatName statName) => _stat.GetStatActual(statName);
+
+        /**
+        * 
+        */
         public int GetStatMax(StatName statName) => _stat.GetStatMax(statName);
+
+        /**
+        * 
+        */
         public void SetPos(Tuple<int, int> newPos) => _pos = newPos;
+
+        /**
+        * 
+        */
         public void ModifyActualStat(StatName statName, int value) => _stat.SetStatActualValue(statName, value);
+
+        /**
+        * 
+        */
         public void ModifyMaxStat(StatName statName, int value) => _stat.SetStatMaxValue(statName, value);
+        
+        /**
+        * 
+        */
         public bool IsAlive() => _stat.GetStatActual(StatName.HP) > 0;
+        
+        /**
+        * 
+        */
         public abstract string GetPath();
     }
 }
