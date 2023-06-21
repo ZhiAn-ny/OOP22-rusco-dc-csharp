@@ -1,6 +1,6 @@
 ﻿using Interactable;
 using NUnit.Framework;
-using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
+using OOP22_rusco_dc_csharp.Bevilacqua.GameMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +12,16 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.Test
     [TestFixture]
     public class TileTest
     {
-        private readonly Tuple<int, int> defaultPos= new Tuple<int, int>(2, 2);
+        private readonly Tuple<int, int> defaultPos = new Tuple<int, int>(2, 2);
+        private ITile newFloor => new FloorTile(this.defaultPos, true);
+        private ITile newWall => new WallTile(this.defaultPos, WallType.TOP);
 
         [Test]
         public void TestConstructor()
         {
             List<ITile> tiles = new List<ITile>();
-            tiles.Add(new FloorTile(this.defaultPos));
-            tiles.Add(new WallTile(this.defaultPos));
+            tiles.Add(this.newFloor);
+            tiles.Add(this.newWall);
             tiles.ForEach(tile =>
             {
                 Assert.IsNotNull(tile);
@@ -33,7 +35,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.Test
         [Test]
         public void TestFloorPlacement()
         {
-            ITile tile = new FloorTile(this.defaultPos);
+            ITile tile = this.newFloor;
             IInteractable door = new Door(this.defaultPos);
             Assert.IsTrue(tile.Put(door));
             Assert.IsFalse(tile.Put(door));
@@ -45,7 +47,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.Test
         [Test]
         public void TestWallPlacement()
         {
-            ITile tile = new WallTile(this.defaultPos);
+            ITile tile = this.newFloor;
             IInteractable door = new Door(this.defaultPos);
             Assert.IsFalse(tile.Put(door));
             Assert.IsNull(tile.Get());

@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
+using OOP22_rusco_dc_csharp.Bevilacqua.GameMap;
 using OOP22_rusco_dc_csharp.CommonFile;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.hero;

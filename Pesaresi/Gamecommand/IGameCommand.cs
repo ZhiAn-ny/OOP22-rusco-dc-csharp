@@ -1,5 +1,5 @@
 using System;
-using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
+using OOP22_rusco_dc_csharp.Bevilacqua.GameMap;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
