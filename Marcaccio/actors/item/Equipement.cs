@@ -1,8 +1,7 @@
-using It.Unibo.Ruscodc.Model.Actors.Hero;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.hero;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 using static OOP22_rusco_dc_csharp.Marcaccio.actors.hero.Inventory;
-using static YourNamespace.Stats.StatImpl;
+using static OOP22_rusco_dc_csharp.Marcaccio.actors.stats.Stat;
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors.item
 {
