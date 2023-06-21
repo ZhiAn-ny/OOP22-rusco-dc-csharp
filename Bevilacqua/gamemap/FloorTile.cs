@@ -9,7 +9,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
     public class FloorTile : Tile
     {
 
-        public FloorTile(Tuple<int, int> position) : base(position, true) { }
+        public FloorTile(Tuple<int, int> position, bool accessibility) : base(position, accessibility) { }
 
         public override string GetPath()
         {
