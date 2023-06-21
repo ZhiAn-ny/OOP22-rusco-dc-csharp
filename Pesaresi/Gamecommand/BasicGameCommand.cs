@@ -26,28 +26,31 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
         private IActor _actActor;
         private IRoom _where;
 
-        /**
-        * 
-        */
-        public void SetActor(IActor by) => _actActor = by;
+        protected IActor ActActor{get; set;}
+        protected IRoom Where{get; set;}
 
         /**
         * 
         */
-        public void SetRoom(IRoom where) => _where = where;
-
-
-        /**
-        * For avoid DRY, other classes that extends this class get who summon the command by this method.
-        * @return who summon the command
-        */
-        protected IActor GetActor() => _actActor;
+        public void SetActor(IActor by) => ActActor = by;
 
         /**
-        * For avoid DRY, other classes that extends this class get where the command was summoned by this method.
-        * @return where the command was summoned
+        * 
         */
-        protected IRoom GetRoom() => _where;
+        public void SetRoom(IRoom where) => Where = where;
+
+
+        // /**
+        // * For avoid DRY, other classes that extends this class get who summon the command by this method.
+        // * @return who summon the command
+        // */
+        // protected IActor GetActor() => ActActor;
+
+        // /**
+        // * For avoid DRY, other classes that extends this class get where the command was summoned by this method.
+        // * @return where the command was summoned
+        // */
+        // protected IRoom GetRoom() => Where;
 
         /**
         * A message error useful for coders that advise the method is not invocable for this object.
@@ -71,7 +74,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 
         public abstract bool Modify(GameControl input);
 
-        public abstract void SetCursorPos(Tuple<Int32, Int32> toFocus);
+        public abstract void SetCursorPos(Tuple<int, int> toFocus);
 
         public abstract void SetTarget(IList<IActor> targettableActors);
 

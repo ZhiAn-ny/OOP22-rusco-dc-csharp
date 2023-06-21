@@ -5,7 +5,6 @@ using IGameCommand = OOP22_rusco_dc_csharp.Pesaresi.Gamecommand.IGameCommand;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Test
 {
-    [TestFixture]
     public class CommandDesingTest
     {
         [Test]

@@ -5,8 +5,8 @@ using OOP22_rusco_dc_csharp.Marcaccio.actors;
 namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 {
     /**
-   * Interface for game's command. Defines method that all command must to implement
-*/
+    * Interface for game's command. Defines method that all command must to implement
+    */
     public interface IGameCommand : IHandlableGameCommand, IIAGameCommand
     {
         /**

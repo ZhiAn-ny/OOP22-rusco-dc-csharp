@@ -8,13 +8,12 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
     */
     public class MoveDownCommand : MoveCommand
     {
-
         /**
          * 
          */
         protected override Tuple<int, int> ComputeNewPos()
         {
-            return MovementCalc.ComputeDownPos(this.GetActor().GetPos());
+            return MovementCalc.ComputeDownPos(ActActor.GetPos());
         }
     }
 }

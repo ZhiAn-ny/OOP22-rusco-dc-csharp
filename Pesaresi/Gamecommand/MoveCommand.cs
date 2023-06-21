@@ -1,4 +1,6 @@
-using System;
+using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
+using OOP22_rusco_dc_csharp.Marcaccio.actors;
+using OOP22_rusco_dc_csharp.CommonFile.Exceptions;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
 {
@@ -23,19 +25,18 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          */
         public override void Execute()
         {
-            /*
-              IRoom where = this.getRoom();
-              Tuple<Int32, Int32> newPos = this.computeNewPos();
-              if (where.getMonsters().stream().map(a -> a.getPos()).anyMatch(p -> p.equals(newPos)) 
-                  || !where.isAccessible(newPos)) {
-                  return; // Optional.of(new InfoPayloadImpl(getErrTitle(), ERR));
-                  //throw new UnreacheblePos(err);
-              }
+            IRoom where = Where;
+            Tuple<int, int> newPos = this.ComputeNewPos();
+            if (where.Monsters.Any(a => a.GetPos().Equals(newPos))
+                //  || !where.isAccessible(newPos)
+                )
+            {
+                throw new ModelException();
+            }
 
-              IActor actActor = this.getActor();
-            */
-            //actActor.setPos(newPos); //TODO
-
+            IActor actActor = ActActor;
+            
+            actActor.SetPos(newPos); 
             // Tile? arrivedPos = where.get(newPos);
             // if (arrivedPos.isPresent()) {
             //     final SingleTargetEffect tmp = arrivedPos.get().getEffect();

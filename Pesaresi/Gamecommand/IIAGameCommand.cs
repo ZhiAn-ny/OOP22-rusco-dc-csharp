@@ -8,7 +8,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
     /**
     * Defines a set of method usefull to manage automatically a specific situation.
     * With these the game can manage mobs
-*/
+    */
     public interface IIAGameCommand
     {
         /**

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using OOP22_rusco_dc_csharp.CommonFile.Exceptions;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
@@ -6,7 +7,9 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
     {
         private readonly Tuple<int, int> _door;
 
-        public ChangeRoom(Tuple<int, int> doorPos)
+        public Tuple<int, int> Door {get;}
+
+        public ChangeRoom([NotNull] Tuple<int, int> doorPos)
         {
             _door = doorPos;
         }
