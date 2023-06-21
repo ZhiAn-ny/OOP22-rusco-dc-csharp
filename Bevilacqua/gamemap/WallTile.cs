@@ -1,15 +1,21 @@
 ﻿using Interactable;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
+namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 {
     public class WallTile : Tile
     {
-        public WallTile(Tuple<int, int> position) : base(position, false) { }
+        private readonly WallType side;
+
+        public WallTile(Tuple<int, int> position, WallType side) : base(position, false) 
+        {
+            this.side = side;
+        }
+
+        public override string GetPath()
+        {
+            return "it/unibo/ruscodc/map_res/WallTile/" 
+                + Enum.GetName(typeof(WallType), this.side);
+        }
 
         public override bool Put(IInteractable obj) => false;
     }

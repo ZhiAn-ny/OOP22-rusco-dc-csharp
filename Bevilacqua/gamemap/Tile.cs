@@ -1,10 +1,8 @@
 ﻿using Interactable;
-using Marcaccio.actors;
-using OOP22_rusco_dc_csharp.Marcaccio;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
+using IEntity = OOP22_rusco_dc_csharp.Marcaccio.IEntity;
 
-
-namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
+namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 {
     public abstract class Tile : ITile, IEntity
     {
@@ -48,5 +46,16 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.gamemap
             return (IActor actor) => { };
         }
 
+        public int GetID()
+        {
+            return 1;
+        }
+
+        public Tuple<int, int> GetPos()
+        {
+            return this.Position;
+        }
+
+        public abstract string GetPath();
     }
 }
