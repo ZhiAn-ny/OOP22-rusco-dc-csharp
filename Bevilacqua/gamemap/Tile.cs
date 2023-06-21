@@ -22,6 +22,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
             if (this.content == null)
             {
                 this.content = obj;
+                return true;
             }
             return false;
         }
