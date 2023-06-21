@@ -1,5 +1,6 @@
 ﻿using Interactable;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
+using IEntity = OOP22_rusco_dc_csharp.Marcaccio.IEntity;
 using System.Collections.Immutable;
 
 namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
@@ -9,15 +10,20 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
         private readonly int minRoomSide = 3;
         private readonly Random random = new Random();
 
-        private List<ITile> Tiles;
+        private List<ITile> tiles;
+        private List<IActor> monsters;
 
         public Tuple<int, int> Size { get; }
-        public List<IActor> Monsters { get; }
+        public ImmutableList<IActor> Monsters => this.monsters.ToImmutableList();
         public Dictionary<Direction, IRoom?> ConnectedRooms { get; }
-        public ImmutableList<IEntity> GetTilesAsEntities => this.Tiles.Cast<IEntity>()
-                                                          .ToImmutableList();
+        public ImmutableList<IEntity> GetTilesAsEntities => this.tiles
+            .Select(tile => (IEntity) tile)
+            .ToImmutableList();
 
-        public List<IInteractable> ObjectsInRoom => throw new NotImplementedException();
+        public ImmutableList<IInteractable> ObjectsInRoom => this.tiles
+            .Where(tile => tile.Get() != null)
+            .Select(tile => tile.Get())
+            .ToImmutableList();
 
         public RectangleRoom(int width, int height)
         {
@@ -26,8 +32,8 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
                 throw new ArgumentOutOfRangeException();
             }
             this.Size = new Tuple<int, int>(width, height);
-            this.Tiles = new List<ITile>();
-            this.Monsters = new List<IActor>();
+            this.tiles = new List<ITile>();
+            this.monsters = new List<IActor>();
             this.ConnectedRooms = new Dictionary<Direction, IRoom?>();
             this.setTiles(width, height);
         }
@@ -39,20 +45,20 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 
         private void setTiles(int width, int height) 
         {
-            for (int i = 0; i < width + 1; i++)
+            for (int i = 0; i <= width + 1; i++)
             {
-                for (int j = 0; j < height + 1; j++)
+                for (int j = 0; j <= height + 1; j++)
                 {
                     Tuple<int, int> pos = new Tuple<int, int>(i, j);
                     if (i == 0 || j == 0 || i == width + 1 || j == height + 1)
                     {
-                        this.Tiles.Add(new WallTile(
+                        this.tiles.Add(new WallTile(
                             pos, this.GetWallType(pos, this.Size)
                         ));
                     }
                     else
                     {
-                        this.Tiles.Add(new FloorTile(pos, true));
+                        this.tiles.Add(new FloorTile(pos, true));
                     }
                 }
             }
@@ -85,9 +91,13 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 
         public bool AddDoor(Direction dir)
         {
-            List<ITile> onSide = this.Tiles
+            List<ITile> onSide = this.tiles
                 .Where((ITile t) => this.OnSide(dir).Invoke(t))
                 .Where((ITile t) => this.IsNotCorner().Invoke(t)).ToList();
+            if (!onSide.Any())
+            {
+                return false;
+            }
             Random random = new Random();
             ITile toReplace = onSide[random.Next(onSide.Count)];
             ITile newTile = new FloorTile(toReplace.Position, true);
@@ -138,7 +148,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 
         public ITile? Get(Tuple<int, int> pos)
         {
-            return this.Tiles.Find(tile => tile.Position == pos);
+            return this.tiles.Find(tile => tile.Position.Equals(pos));
         }
 
         public bool IsAccessible(Tuple<int, int> pos)
@@ -155,21 +165,21 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
         public bool ReplaceTile(Tuple<int, int> pos, ITile newTile)
         {
             ITile? old = this.Get(pos);
-            if (old != null && this.Tiles.Remove(old))
+            if (old != null && this.tiles.Remove(old))
             {
-                this.Tiles.Add(newTile);
+                this.tiles.Add(newTile);
                 return true;
             }
             return false;
         }
 
-        public void clearArea(Tuple<int, int> pos, int rad)
+        public void ClearArea(Tuple<int, int> pos, int rad)
         {
             ImmutableList<Tuple<int, int>> positions = this.GetCircle(pos, rad);
-            this.Tiles.Where(tile => positions.Contains(tile.Position))
+            this.tiles.Where(tile => positions.Contains(tile.Position))
                 .Where(tile => !(tile.Get() is Door) && !(tile.Get() is Stair))
                 .ToList().ForEach(tile => tile.Empty());
-            this.Monsters.RemoveAll(mst => positions.Contains(mst.GetPos()));
+            this.monsters.RemoveAll(mst => positions.Contains(mst.GetPos()));
         }
 
         private ImmutableList<Tuple<int, int>> GetCircle(Tuple<int, int> pos, int rad)
@@ -188,7 +198,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 
         public bool AddMonster(IActor monster)
         {
-            IActor? enemy = this.Monsters.Find(mst => 
+            IActor? enemy = this.monsters.Find(mst => 
                 mst.GetPos().Equals(monster.GetPos())
             );
             ITile? tile = this.Get(monster.GetPos());
@@ -198,20 +208,20 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
                 {
                     return false;
                 }
-                this.Monsters.Add(monster);
+                this.monsters.Add(monster);
                 return true;
             }
             return false;
         }
 
-        public void eliminateMonster(IActor monster)
+        public void EliminateMonster(IActor monster)
         {
-            IActor? mst = this.Monsters.Find(mst => 
+            IActor? mst = this.monsters.Find(mst => 
                 mst.GetPos().Equals(monster.GetPos())
             );
             if (mst != null && mst.GetName().Equals(monster.GetName()))
             {
-                this.Monsters.Remove(mst);
+                this.monsters.Remove(mst);
             }
         }
 
@@ -226,7 +236,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
             }
             else
             {
-                List<WallTile> onSide = this.Tiles
+                List<WallTile> onSide = this.tiles
                     .OfType<WallTile>()
                     .Where(tile => this.OnSide(dir).Invoke(tile))
                     .Where(tile => this.IsNotCorner().Invoke(tile))
@@ -254,11 +264,21 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
 
         public IInteractable? GetDoorOnSide(Direction dir)
         {
-            return this.Tiles.Where(tile => this.OnSide(dir).Invoke(tile))
+            return this.tiles.Where(tile => this.OnSide(dir).Invoke(tile))
                 .Where(tile => tile.Get() != null)
                 .Select(tile => tile.Get())
                 .OfType<Door>()
                 .Cast<IInteractable>().FirstOrDefault();
+        }
+
+        public bool Put(Tuple<int, int> pos, IInteractable obj)
+        {
+            ITile? tile = this.Get(pos);
+            if (tile != null)
+            {
+                return tile.Put(obj);
+            }
+            return false;
         }
     }
 }
