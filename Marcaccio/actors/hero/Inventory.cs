@@ -1,4 +1,3 @@
-using It.Unibo.Ruscodc.Model.Actors.Hero;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.item;
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors.hero
@@ -60,14 +59,14 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.actors.hero
         /**
          * {@inheritdoc}
          */
-        public List<IEquipment> GetEquippedItems() => _equipment.Values.ToList();
+        public List<IEquipment?> GetEquippedItems() => _equipment.Values.ToList();
 
         /**
          * {@inheritdoc}
          */
         public void Equip(IEquipment equip, IHero hero)
         {
-            IEquipment toUnequip = _equipment[equip.GetSlot()];
+            IEquipment? toUnequip = _equipment[equip.GetSlot()];
             toUnequip?.Unequip(hero);
             _equipment[equip.GetSlot()] = equip;
             equip.Equip(hero);

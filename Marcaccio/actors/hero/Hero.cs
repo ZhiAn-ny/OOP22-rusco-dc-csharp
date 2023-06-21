@@ -1,6 +1,5 @@
-using It.Unibo.Ruscodc.Model.Actors.Hero;
-using Marcaccio.skills;
-using Marcaccio.stats;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.skills;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.stats;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors.hero

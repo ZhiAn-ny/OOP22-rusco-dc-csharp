@@ -1,8 +1,7 @@
-using Marcaccio.stats;
-
-namespace YourNamespace.Stats
+namespace OOP22_rusco_dc_csharp.Marcaccio.actors.stats
 {
-    public class StatImpl : IStat
+
+    public class Stat : IStat
     {
         public enum StatName
         {
@@ -14,13 +13,13 @@ namespace YourNamespace.Stats
             INT
         }
 
-        private static readonly Tuple<Int32, Int32> DEFAULT = new(0, 0);
+        private static readonly Tuple<int, int> DEFAULT = new(0, 0);
 
-        private readonly Dictionary<StatName, Tuple<Int32, Int32>> _stats;
+        private readonly Dictionary<StatName, Tuple<int, int>> _stats;
 
-        public StatImpl()
+        public Stat()
         {
-            _stats = new Dictionary<StatName, Tuple<Int32, Int32>>();
+            _stats = new Dictionary<StatName, Tuple<int, int>>();
 
             foreach (StatName statName in Enum.GetValues(typeof(StatName)))
             {
@@ -30,17 +29,17 @@ namespace YourNamespace.Stats
 
         public void SetStatActualValue(StatName toSet, int actualValue)
         {
-            Tuple<Int32, Int32> values = _stats[toSet];
-            _stats[toSet] = new (actualValue, values.Item2);
+            Tuple<int, int> values = _stats[toSet];
+            _stats[toSet] = new(actualValue, values.Item2);
         }
 
         public void SetStatMaxValue(StatName toSet, int maxValue)
         {
-            Tuple<Int32, Int32> values = _stats[toSet];
-            _stats[toSet] = new (values.Item1, maxValue);
+            Tuple<int, int> values = _stats[toSet];
+            _stats[toSet] = new(values.Item1, maxValue);
         }
 
-        public void SetStat(StatName toSet, Tuple<Int32, Int32> value) => _stats[toSet] = value;
+        public void SetStat(StatName toSet, Tuple<int, int> value) => _stats[toSet] = value;
 
         public int GetStatActual(StatName statName) => _stats[statName].Item1;
 

@@ -1,10 +1,11 @@
-using Marcaccio.skills;
-using Marcaccio.stats;
-using static YourNamespace.Stats.StatImpl;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.skills;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.stats;
+using static OOP22_rusco_dc_csharp.Marcaccio.actors.stats.Stat;
 
-namespace Marcaccio.actors
+
+namespace OOP22_rusco_dc_csharp.Marcaccio.actors
 {
-    public interface IActor : IGameCommand
+    public interface IActor : IEntity
     {
         string GetName();
         IStat GetStats();

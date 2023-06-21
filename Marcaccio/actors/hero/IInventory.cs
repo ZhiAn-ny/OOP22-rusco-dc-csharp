@@ -1,4 +1,3 @@
-using It.Unibo.Ruscodc.Model.Actors.Hero;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.item;
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors.hero
@@ -35,7 +34,7 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.actors.hero
          *
          * @return the list of equipped items
          */
-        List<IEquipment> GetEquippedItems();
+        List<IEquipment?> GetEquippedItems();
 
         /**
          * Equips an equipment item to the specified hero.
