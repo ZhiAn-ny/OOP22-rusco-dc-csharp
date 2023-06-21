@@ -58,7 +58,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.Test
             IActor mst = this.testActor;
             room.AddMonster(mst);
             Assert.IsFalse(room.AddMonster(mst));
-            Assert.AreEqual(0, room.Monsters.Count);
+            Assert.AreEqual(1, room.Monsters.Count);
         }
 
         [Test]
