@@ -8,11 +8,10 @@ using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Test
 {
-    [TestFixture]
     public class MovementTest
     {
         private readonly int size = 21;
-        Tuple<int, int> actHeroPos;
+        private Tuple<int, int> _actHeroPos;
         private void SetCommand(IGameCommand gamecommand, IActor who, IRoom where)
         {
             gamecommand.SetActor(who);
@@ -20,9 +19,9 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
         }
 
         [SetUp]
-        private void start()
+        public void Start()
         {
-            actHeroPos = new(size / 2, size / 2);
+            _actHeroPos = new(size / 2, size / 2);
         }
 
         private void CheckMov(
@@ -33,16 +32,17 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
             IActor hero = new Hero("test", actHeroPos, null, null);
             IRoom room = new RectangleRoom(size, size);
             SetCommand(movementToTest, hero, room);
+            Assert.Multiple(() =>
+            {
+                Assert.That(actHeroPos, Is.EqualTo(hero.GetPos()));
+                Assert.That(resultPos, Is.Not.EqualTo(hero.GetPos()));
 
-            Assert.AreEqual(hero.GetPos(), actHeroPos);
-            Assert.AreNotEqual(hero.GetPos(), resultPos);
+                Assert.That(movementToTest.IsReady(), Is.True);
+                Assert.DoesNotThrow(() => { movementToTest.Execute(); });
 
-            Assert.IsTrue(movementToTest.IsReady());
-            Assert.DoesNotThrow(() => { movementToTest.Execute(); });
-
-            Assert.AreEqual(hero.GetPos(), resultPos);
-            Assert.AreNotEqual(hero.GetPos(), actHeroPos);
-            //assertEquals(resultPos, hero.getPos(), "ERR: wrong movement!");
+                Assert.That(resultPos, Is.EqualTo(hero.GetPos()));
+                Assert.That(actHeroPos, Is.Not.EqualTo(hero.GetPos()));
+            });
         }
 
         /**
@@ -50,9 +50,9 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
         * Credit: Pesaresi Jacopo.
         */
         [Test]
-        void CheckMoveUp()
+        public void CheckMoveUp()
         {
-            CheckMov(new MoveUpCommand(), actHeroPos, MovementCalc.ComputeUpPos(actHeroPos));
+            CheckMov(new MoveUpCommand(), _actHeroPos, MovementCalc.ComputeUpPos(_actHeroPos));
         }
 
         /**
@@ -60,9 +60,9 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
         * Credit: Pesaresi Jacopo.
         */
         [Test]
-        void CheckMoveDown()
+        public void CheckMoveDown()
         {
-            CheckMov(new MoveDownCommand(), actHeroPos, MovementCalc.ComputeDownPos(actHeroPos));
+            CheckMov(new MoveDownCommand(), _actHeroPos, MovementCalc.ComputeDownPos(_actHeroPos));
         }
 
         /**
@@ -70,9 +70,9 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
         * Credit: Pesaresi Jacopo.
         */
         [Test]
-        void CheckMovLeft()
+        public void CheckMovLeft()
         {
-            CheckMov(new MoveLeftCommand(), actHeroPos, MovementCalc.ComputeLeftPos(actHeroPos));
+            CheckMov(new MoveLeftCommand(), _actHeroPos, MovementCalc.ComputeLeftPos(_actHeroPos));
         }
 
         /**
@@ -80,9 +80,9 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
         * Credit: Pesaresi Jacopo.
         */
         [Test]
-        void CheckMoveRight()
+        public void CheckMoveRight()
         {
-            CheckMov(new MoveRightCommand(), actHeroPos, MovementCalc.ComputeRightPos(actHeroPos));
+            CheckMov(new MoveRightCommand(), _actHeroPos, MovementCalc.ComputeRightPos(_actHeroPos));
         }
 
     }
