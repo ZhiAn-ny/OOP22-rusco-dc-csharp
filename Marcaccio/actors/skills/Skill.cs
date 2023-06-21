@@ -16,14 +16,6 @@ namespace Marcaccio.skills
 
         public IGameCommand? GetAction(GameControl key) => _skills[key];
 
-        public override string ToString()
-        {
-            string info = string.Empty;
-            foreach (GameControl gameCommand in GameControl.GetAttackControls())
-            {
-                info += gameCommand.ToString() + _skills[gameCommand].ToString();
-            }
-            return info;
-        }
+        
     }
 }
