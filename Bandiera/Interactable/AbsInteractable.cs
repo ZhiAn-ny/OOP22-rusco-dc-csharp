@@ -1,3 +1,5 @@
+using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
+
 namespace Interactable
 {
     /// <summary>
@@ -5,8 +7,8 @@ namespace Interactable
     /// </summary>
     public abstract class AbsInteractable : IInteractable
     {
-        private readonly Tuple<Int32, Int32> pos;
-        private static readonly int id = 2;
+        private readonly Tuple<Int32, Int32> _pos;
+        private static readonly int _id = 2;
 
         /// <summary>
         /// Constructor of the abstract class.
@@ -14,13 +16,13 @@ namespace Interactable
         /// <param name="pos"></param>
         protected AbsInteractable(Tuple<Int32, Int32> pos)
         {
-            this.pos = pos;
+            _pos = pos;
         }
 
         /// <inheritdoc/>
         public Tuple<Int32, Int32> GetPos()
         {
-            return this.pos;
+            return _pos;
         }
 
         /// <inheritdoc/>
@@ -33,8 +35,9 @@ namespace Interactable
         public abstract IGameCommand Interact();
 
         /// <inheritdoc/>
-        public abstract bool isTransitable();
+        public abstract bool IsTransitable();
 
+        public abstract string GetPath();
     }
 
 }

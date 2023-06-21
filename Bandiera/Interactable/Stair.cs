@@ -1,4 +1,4 @@
-using Interactable;
+using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace Interactable
 {
@@ -8,7 +8,8 @@ namespace Interactable
     /// </summary>
     public class Stair : AbsInteractable
     {
-        private readonly string name;
+        private readonly string _name;
+        private readonly string _path;
 
         /// <summary>
         /// The constructor of the Stair class.
@@ -16,14 +17,16 @@ namespace Interactable
         /// <param name="pos">where spawn the stair.</param>
         public Stair(Tuple<Int32, Int32> pos) : base(pos)
         {
-            this.name = "Stair";
+            _name = "Stair";
         }
 
         /// <inheritdoc/>
         public override string GetName()
         {
-            return this.name;
+            return _name;
         }
+
+        public override string GetPath() => _path;
 
         /// <inheritdoc/>
         public override IGameCommand Interact()
@@ -32,7 +35,7 @@ namespace Interactable
         }
 
         /// <inheritdoc/>
-        public override bool isTransitable()
+        public override bool IsTransitable()
         {
             return true;
         }

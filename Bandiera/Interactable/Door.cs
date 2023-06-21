@@ -1,3 +1,6 @@
+using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
+
+
 namespace Interactable
 {
     /// <summary>
@@ -6,7 +9,8 @@ namespace Interactable
     /// </summary>
     public class Door : AbsInteractable
     {
-        private readonly string name;
+        private readonly string _name;
+        private readonly string _path;
 
         /// <summary>
         /// The constructor of the Door class.
@@ -14,21 +18,24 @@ namespace Interactable
         /// <param name="pos">where spawn the door.</param>
         public Door(Tuple<Int32, Int32> pos) : base(pos)
         {
-            this.name = "Door";
+            _name = "Door";
         }
 
         /// <inheritdoc/>
         public override string GetName()
         {
-            return this.name;
+            return _name;
         }
+
+        public override string GetPath() => _path;
+
         /// <inheritdoc/>
         public override IGameCommand Interact()
         {
             return new ChangeRoom(GetPos());
         }
         /// <inheritdoc/>
-        public override bool isTransitable()
+        public override bool IsTransitable()
         {
             return true;
         }

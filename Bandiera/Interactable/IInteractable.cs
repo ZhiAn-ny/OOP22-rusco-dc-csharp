@@ -1,3 +1,6 @@
+using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
+using OOP22_rusco_dc_csharp.Marcaccio;
+
 namespace Interactable
 {
     /// <summary>
@@ -19,7 +22,7 @@ namespace Interactable
         /// Specific if this interactable could be transitable.
         /// </summary>
         /// <returns>true if actors can pass over, false otherwise</returns>
-        bool isTransitable();
+        bool IsTransitable();
     }
     
 }
