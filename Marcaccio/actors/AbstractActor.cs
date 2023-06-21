@@ -1,8 +1,9 @@
 using Marcaccio;
-using Marcaccio.actors;
-using Marcaccio.skills;
-using Marcaccio.stats;
-using static YourNamespace.Stats.StatImpl;
+using OOP22_rusco_dc_csharp.Bevilacqua.gamemap;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.skills;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.stats;
+using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
+using static OOP22_rusco_dc_csharp.Marcaccio.actors.stats.Stat;
 
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors
@@ -23,9 +24,11 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.actors
             _pos = pos;
         }
 
+        public int GetID() => _ID;
         public string GetName() => _name;
         public IStat GetStats() => _stat;
         public ISkill GetSkills() => _skill;
+        public Tuple<int, int> GetPos() => _pos;
         public int GetStatActual(StatName statName) => _stat.GetStatActual(statName);
         public int GetStatMax(StatName statName) => _stat.GetStatMax(statName);
         public void SetPos(Tuple<int, int> newPos) => _pos = newPos;

@@ -1,8 +1,7 @@
-using Marcaccio.actors;
-using OOP22_rusco_dc_csharp.Marcaccio.actors.hero;
+using OOP22_rusco_dc_csharp.Marcaccio.actors;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
-namespace It.Unibo.Ruscodc.Model.Actors.Hero
+namespace OOP22_rusco_dc_csharp.Marcaccio.actors.hero
 {
     /**
      * Interface of the Hero controlled by the player.

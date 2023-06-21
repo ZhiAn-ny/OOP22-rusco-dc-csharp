@@ -1,6 +1,6 @@
-using static YourNamespace.Stats.StatImpl;
+using static OOP22_rusco_dc_csharp.Marcaccio.actors.stats.Stat;
 
-namespace Marcaccio.stats
+namespace OOP22_rusco_dc_csharp.Marcaccio.actors.stats
 {
     public interface IStat
     {

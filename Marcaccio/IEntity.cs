@@ -1,4 +1,4 @@
-namespace Marcaccio
+namespace OOP22_rusco_dc_csharp.Marcaccio
 {
     public interface IEntity
     {

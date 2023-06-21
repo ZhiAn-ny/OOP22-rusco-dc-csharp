@@ -1,4 +1,4 @@
-using It.Unibo.Ruscodc.Model.Actors.Hero;
+using OOP22_rusco_dc_csharp.Marcaccio.actors.hero;
 using static OOP22_rusco_dc_csharp.Marcaccio.actors.hero.Inventory;
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors.item

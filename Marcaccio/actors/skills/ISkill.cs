@@ -1,7 +1,8 @@
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
-namespace Marcaccio.skills
+namespace OOP22_rusco_dc_csharp.Marcaccio.actors.skills
 {
+
     public interface ISkill
     {
         IGameCommand? GetAction(GameControl key);
