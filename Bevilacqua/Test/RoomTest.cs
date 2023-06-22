@@ -66,7 +66,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.Test
         {
             IRoom room = this.newRoom;
             IActor mst = this.testActor;
-            room.Put(mst.GetPos(), new Door(mst.GetPos()));
+            room.Put(mst.GetPos(), new Door(mst.GetPos(), Direction.Up));
             Assert.IsTrue(room.AddMonster(mst));
         }
 

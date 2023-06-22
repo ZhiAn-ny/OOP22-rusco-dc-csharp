@@ -101,7 +101,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
             Random random = new Random();
             ITile toReplace = onSide[random.Next(onSide.Count)];
             ITile newTile = new FloorTile(toReplace.Position, true);
-            newTile.Put(new Door(newTile.Position));
+            newTile.Put(new Door(newTile.Position, dir));
             if (!this.ConnectedRooms.ContainsKey(dir))
             {
                 this.ConnectedRooms.Add(dir, null);
@@ -204,7 +204,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.GameMap
             ITile? tile = this.Get(monster.GetPos());
             if (enemy == null && tile != null && tile.IsAccessible)
             {
-                if (tile.Get() != null && !tile.Get().isTransitable())
+                if (tile.Get() != null && !tile.Get().IsTransitable())
                 {
                     return false;
                 }

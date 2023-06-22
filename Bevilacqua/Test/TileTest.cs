@@ -36,7 +36,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.Test
         public void TestFloorPlacement()
         {
             ITile tile = this.newFloor;
-            IInteractable door = new Door(this.defaultPos);
+            IInteractable door = new Door(this.defaultPos, Direction.Up);
             Assert.IsTrue(tile.Put(door));
             Assert.IsFalse(tile.Put(door));
             Assert.IsNotNull(tile.Get());
@@ -48,7 +48,7 @@ namespace OOP22_rusco_dc_csharp.Bevilacqua.Test
         public void TestWallPlacement()
         {
             ITile tile = this.newWall;
-            IInteractable door = new Door(this.defaultPos);
+            IInteractable door = new Door(this.defaultPos, Direction.Up);
             Assert.IsFalse(tile.Put(door));
             Assert.IsNull(tile.Get());
             Assert.IsNull(tile.Empty());
