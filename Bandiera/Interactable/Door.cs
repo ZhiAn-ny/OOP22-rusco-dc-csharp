@@ -33,6 +33,7 @@ namespace Interactable
             return _name;
         }
 
+        /// <inheritdoc/>
         public override string GetPath() => _path;
 
         /// <inheritdoc/>

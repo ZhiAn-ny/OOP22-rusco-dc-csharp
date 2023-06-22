@@ -37,6 +37,7 @@ namespace Interactable
         /// <inheritdoc/>
         public abstract bool IsTransitable();
 
+        /// <inheritdoc/>
         public abstract string GetPath();
     }
 
