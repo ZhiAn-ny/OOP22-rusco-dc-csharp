@@ -27,6 +27,17 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.actors.skills
         */
         public IGameCommand? GetAction(GameControl key) => _skills[key];
 
-
+        /**
+        *
+        */
+        public override string ToString()
+        {
+            string info = string.Empty;
+            foreach (GameControl gameCommand in GameControl.GetAttackControls())
+            {
+                info += $"{gameCommand.ToString()}{skills[gameCommand].ToString()}";
+            }
+            return info;
+        }
     }
 }
