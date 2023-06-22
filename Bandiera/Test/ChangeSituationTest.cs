@@ -7,6 +7,7 @@ namespace OOP22_rusco_dc_csharp.Bandiera.Test
     [TestFixture]
     public class ChangeFloorTest
     {
+        [Test]
         public void Execute_ChangeFloorException()
         {
             ChangeFloor changeFloor = new ChangeFloor();
@@ -17,6 +18,7 @@ namespace OOP22_rusco_dc_csharp.Bandiera.Test
     [TestFixture]
     public class ChangeRoomTest
     {
+        [Test]
         public void Execute_ChangeRoomException()
         {
             ChangeRoom changeRoom = new ChangeRoom(new Tuple<int, int>(0, 5));
