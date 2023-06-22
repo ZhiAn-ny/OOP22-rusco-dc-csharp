@@ -11,8 +11,6 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
     public abstract class MoveCommand : QuickActionAbs
     {
 
-        private static readonly String ERR = "The position is already occupied or is out of the room";
-
         /**
          * Client must not create directly this object.
          */
@@ -28,7 +26,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
             IRoom where = Where;
             Tuple<int, int> newPos = this.ComputeNewPos();
             if (where.Monsters.Any(a => a.GetPos().Equals(newPos))
-                //  || !where.isAccessible(newPos)
+                || !where.IsAccessible(newPos)
                 )
             {
                 throw new ModelException();
@@ -37,19 +35,6 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
             IActor actActor = ActActor;
             
             actActor.SetPos(newPos); 
-            // Tile? arrivedPos = where.get(newPos);
-            // if (arrivedPos.isPresent()) {
-            //     final SingleTargetEffect tmp = arrivedPos.get().getEffect();
-            //     tmp.applyEffect(actActor);
-            // }
-
-            // Interactable? possibleInnerInteraction = arrivedPos.get().get();
-            // if (possibleInnerInteraction.isPresent()) {
-            //     GameCommand gc = possibleInnerInteraction.get().interact();
-            //     gc.setActor(actActor);
-            //     gc.setRoom(where);
-            //     return gc.execute();
-            // }
 
             return;
         }
@@ -59,7 +44,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
          * This work must be defined in other dedicated classes.
          * @return the new position, to be checked
          */
-        protected abstract Tuple<Int32, Int32> ComputeNewPos();
+        protected abstract Tuple<int, int> ComputeNewPos();
 
     }
 }

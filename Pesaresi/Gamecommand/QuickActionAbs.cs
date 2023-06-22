@@ -10,7 +10,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
    * This abstract class defines that all the other class that extend this class will wrap an
    * action that tipically can execute without any type of other controls (neither by player or IA).
    * So logically the wrapped command can be executed
-*/
+   */
     public abstract class QuickActionAbs : BasicGameCommand
     {
 
@@ -61,7 +61,7 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
         /**
          * 
          */
-        public override void SetCursorPos(Tuple<Int32, Int32> toFocus)
+        public override void SetCursorPos(Tuple<int, int> toFocus)
         {
             throw new NotSupportedException(GetGlobalErrMess());
         }
