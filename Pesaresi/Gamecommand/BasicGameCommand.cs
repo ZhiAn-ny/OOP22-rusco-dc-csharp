@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Marcaccio;
 using OOP22_rusco_dc_csharp.Bevilacqua.GameMap;
 using OOP22_rusco_dc_csharp.Marcaccio;
 using OOP22_rusco_dc_csharp.Marcaccio.actors;
@@ -39,19 +38,6 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Gamecommand
         * 
         */
         public void SetRoom(IRoom where) => Where = where;
-
-
-        // /**
-        // * For avoid DRY, other classes that extends this class get who summon the command by this method.
-        // * @return who summon the command
-        // */
-        // protected IActor GetActor() => ActActor;
-
-        // /**
-        // * For avoid DRY, other classes that extends this class get where the command was summoned by this method.
-        // * @return where the command was summoned
-        // */
-        // protected IRoom GetRoom() => Where;
 
         /**
         * A message error useful for coders that advise the method is not invocable for this object.
