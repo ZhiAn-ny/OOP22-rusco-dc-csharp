@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using OOP22_rusco_dc_csharp.CommonFile.GameControl;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.hero;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.item;
 using OOP22_rusco_dc_csharp.Marcaccio.actors.skills;
@@ -27,7 +28,7 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.test
             _stat.SetStat(StatName.DEX, new (1,1));
             _stat.SetStat(StatName.INT, new (1,1));
 
-            _skill.SetAction(GameControl.MOVE, new MoveUpCommand());
+            _skill.SetAction(GameControl.MOVEUP, new MoveUpCommand());
             
             _hero = new Hero(_name, _actHeroPos, _skill, _stat);
 
@@ -57,7 +58,7 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.test
 
             Assert.Multiple(() =>
             {
-                Assert.That(_hero.Act(GameControl.MOVE), Is.EqualTo(_hero.GetSkills().GetAction(GameControl.MOVE)));
+                Assert.That(_hero.Act(GameControl.MOVEUP), Is.EqualTo(_hero.GetSkills().GetAction(GameControl.MOVEUP)));
                 Assert.That(_hero.GetID(), Is.EqualTo(3));
                 Assert.That(_hero.GetName, Is.EqualTo("Test"));
                 Assert.That(_hero.GetPos, Is.EqualTo(_pos));

@@ -1,4 +1,6 @@
+using OOP22_rusco_dc_csharp.CommonFile.GameControl;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
+
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors.skills
 {
@@ -33,9 +35,9 @@ namespace OOP22_rusco_dc_csharp.Marcaccio.actors.skills
         public override string ToString()
         {
             string info = string.Empty;
-            foreach (GameControl gameCommand in GameControl.GetAttackControls())
+            foreach (GameControl gameCommand in GameControlExtension.GetAttackControls())
             {
-                info += $"{gameCommand.ToString()}{skills[gameCommand].ToString()}";
+                info += $"{gameCommand}{_skills[gameCommand].ToString()}";
             }
             return info;
         }

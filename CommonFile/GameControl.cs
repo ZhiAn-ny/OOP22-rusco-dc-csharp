@@ -75,7 +75,7 @@ namespace OOP22_rusco_dc_csharp.CommonFile.GameControl
     }
 
 
-    public static class GameControlAttack
+    public static class GameControlExtension
     {
         /// <summary>
         /// Computes a list of GameControl typically associated with attack commands.
