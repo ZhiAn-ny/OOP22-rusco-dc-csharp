@@ -1,4 +1,4 @@
-using OOP22_rusco_dc_csharp.Marcaccio.actors;
+using OOP22_rusco_dc_csharp.CommonFile.GameControl;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace OOP22_rusco_dc_csharp.Marcaccio.actors.hero
