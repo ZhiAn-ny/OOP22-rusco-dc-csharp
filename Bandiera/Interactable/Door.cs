@@ -1,3 +1,4 @@
+using OOP22_rusco_dc_csharp.Bevilacqua;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 
@@ -11,15 +12,20 @@ namespace Interactable
     {
         private readonly string _name;
         private readonly string _path;
+        private readonly Direction _direction;
 
         /// <summary>
         /// The constructor of the Door class.
         /// </summary>
         /// <param name="pos">where spawn the door.</param>
-        public Door(Tuple<Int32, Int32> pos) : base(pos)
+        public Door(Tuple<Int32, Int32> pos, Direction direction) : base(pos)
         {
             _name = "Door";
+            _direction = direction;
         }
+
+        public Direction Direction => _direction;
+
 
         /// <inheritdoc/>
         public override string GetName()
