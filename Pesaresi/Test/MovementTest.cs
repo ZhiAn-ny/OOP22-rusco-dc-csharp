@@ -8,6 +8,7 @@ using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Test
 {
+    [TestFixture]
     public class MovementTest
     {
         private readonly int size = 21;

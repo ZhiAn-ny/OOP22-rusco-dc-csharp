@@ -4,6 +4,7 @@ using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 
 namespace OOP22_rusco_dc_csharp.Pesaresi.Test
 {
+    [TestFixture]
     public class CommandDesingTest
     {
         [Test]
@@ -14,5 +15,5 @@ namespace OOP22_rusco_dc_csharp.Pesaresi.Test
         }
 
     }
-    
+
 }
