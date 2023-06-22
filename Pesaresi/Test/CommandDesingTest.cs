@@ -1,4 +1,3 @@
-using Interactable;
 using NUnit.Framework;
 using OOP22_rusco_dc_csharp.Pesaresi.Gamecommand;
 using IGameCommand = OOP22_rusco_dc_csharp.Pesaresi.Gamecommand.IGameCommand;
